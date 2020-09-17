@@ -1,0 +1,4 @@
+-Dfts=false
+-Dfunctional_tests=false
+-Dman=false
+-Ddocs=false
