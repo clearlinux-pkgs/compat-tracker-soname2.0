@@ -4,7 +4,7 @@
 #
 Name     : compat-tracker-soname2.0
 Version  : 2.3.6
-Release  : 3
+Release  : 4
 URL      : https://download.gnome.org/sources/tracker/2.3/tracker-2.3.6.tar.xz
 Source0  : https://download.gnome.org/sources/tracker/2.3/tracker-2.3.6.tar.xz
 Summary  : Tracker : A library to perform SPARQL queries and updates in the \
