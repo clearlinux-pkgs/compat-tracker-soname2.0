@@ -4,7 +4,7 @@
 #
 Name     : compat-tracker-soname2.0
 Version  : 2.3.6
-Release  : 4
+Release  : 5
 URL      : https://download.gnome.org/sources/tracker/2.3/tracker-2.3.6.tar.xz
 Source0  : https://download.gnome.org/sources/tracker/2.3/tracker-2.3.6.tar.xz
 Summary  : Tracker : A library to perform SPARQL queries and updates in the \
@@ -25,10 +25,10 @@ BuildRequires : gstreamer-dev
 BuildRequires : json-glib-dev
 BuildRequires : libexif-dev
 BuildRequires : libjpeg-turbo-dev
-BuildRequires : libsoup-dev
 BuildRequires : libunistring-dev
 BuildRequires : pkgconfig(bash-completion)
 BuildRequires : pkgconfig(libnm)
+BuildRequires : pkgconfig(libsoup-2.4)
 BuildRequires : pkgconfig(uuid)
 BuildRequires : pkgconfig(zlib)
 BuildRequires : systemd-dev
@@ -123,15 +123,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1600369025
+export SOURCE_DATE_EPOCH=1633283389
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dfts=false \
 -Dfunctional_tests=false \
 -Dman=false \
@@ -143,7 +143,7 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-meson test -C builddir || :
+meson test -C builddir --print-errorlogs || :
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-tracker-soname2.0
